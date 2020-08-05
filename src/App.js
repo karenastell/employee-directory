@@ -5,9 +5,15 @@ import Table from './components/Table/Table';
 import Filter from './components/Filter';
 import Container from './components/Container';
 import Users from './components/Users.json';
+import Footer from './components/Footer'
 
 function App() {
-  console.log(Users[0]);
+
+  const handleSort = (event) => {
+    event.preventDefault();
+    alert('handlesort');
+  };
+
   return (
     <div className='App'>
       <Header />
@@ -15,13 +21,10 @@ function App() {
         <Filter />
         <Table
           users={Users}
-          // id={Users[0].id}
-          // firstName={Users[0].firstName}
-          // lastName={Users[0].lastName}
-          // role={Users[0].role}
-          // email={Users[0].email}
+          handleSort={handleSort}
         />
       </Container>
+      <Footer/>
     </div>
   );
 }
