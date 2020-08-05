@@ -8,7 +8,8 @@ export default function Table(props) {
       <table className='table table-dark'>
         <thead>
           <TableHeader
-             handleSort={props.handleSort} />
+             handleSortLastName={props.handleSortLastName} 
+             handleSortID={props.handleSortID} />
         </thead>
         <tbody>
           <TableData

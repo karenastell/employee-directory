@@ -4,13 +4,13 @@ export default function TableHeaders(props) {
   return (
     <tr>
       <th scope='col'>
-        <button onClick={props.handleSort}>ID</button>
+        <button onClick={props.handleSortID}>ID</button>
       </th>
       <th scope='col'>
         <button>First Name</button>
       </th>
       <th scope='col'>
-        <button onClick={props.handleSort}>Last Name</button>
+        <button onClick={props.handleSortLastName}>Last Name</button>
       </th>
       <th scope='col'>
         <button>Role</button>
