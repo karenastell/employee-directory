@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "firstName": "Karen",
+        "lastName": "Astell",
+        "email": "karen@gmail.com",
+        "role": "Manager"
+    },
+    {
+        "id": 2,
+        "firstName": "Heidi",
+        "lastName": "Katz",
+        "email": "heidi@gmail.com",
+        "role": "Nurse"
+    },
+    {
+        "id": 3,
+        "firstName": "Franklin",
+        "lastName": "Smith",
+        "email": "franklin@gmail.com",
+        "role": "Student"
+    },
+    {
+        "id": 4,
+        "firstName": "Hugo",
+        "lastName": "Carl",
+        "email": "hugo@gmail.com",
+        "role": "Doctor"
+    },
+    {
+        "id": 5,
+        "firstName": "Denise",
+        "lastName": "Hardy",
+        "email": "denise@gmail.com",
+        "role": "Manager"
+    },
+    {
+        "id": 6,
+        "firstName": "Kathy",
+        "lastName": "Cote",
+        "email": "kathy@gmail.com",
+        "role": "Doctor"
+    },
+    {
+        "id": 7,
+        "firstName": "Jeanette",
+        "lastName": "Marshall",
+        "email": "jeanette@gmail.com",
+        "role": "Nurse"
+    },
+    {
+        "id": 8,
+        "firstName": "Sawyer",
+        "lastName": "Nethins",
+        "email": "sawyer@gmail.com",
+        "role": "Tech"
+    },
+    {
+        "id": 9,
+        "firstName": "Jack",
+        "lastName": "Roberts",
+        "email": "jack@gmail.com",
+        "role": "Doctor"
+    },
+    {
+        "id": 10,
+        "firstName": "Pat",
+        "lastName": "Wilson",
+        "email": "pat@gmail.com",
+        "role": "Tech"
+    }
+]

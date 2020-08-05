@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Table from './components/Table/Table';
 import Filter from './components/Filter';
 import Container from './components/Container';
+import Sort from './components/Sort'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <Container>
         <Filter />
+        <Sort/>
         <Table />
       </Container>
     </div>

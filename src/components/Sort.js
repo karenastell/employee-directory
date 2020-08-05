@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-export default class Filter extends Component {
+export default class Sort extends Component {
     render() {
         return (
             <div class="input-group mb-3">
             <select class="custom-select" id="inputGroupSelect02">
-              <option selected>Filter by...</option>
+              <option selected>Sort by...</option>
               <option value="1">#</option>
               <option value="2">First</option>
               <option value="3">Last</option>
