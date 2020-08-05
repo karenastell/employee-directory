@@ -9,7 +9,8 @@ export default function Table(props) {
         <thead>
           <TableHeader
              handleSortLastName={props.handleSortLastName} 
-             handleSortID={props.handleSortID} />
+             handleSortID={props.handleSortID}
+             handleSortText={props.handleSortText} />
         </thead>
         <tbody>
           <TableData

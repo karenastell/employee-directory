@@ -1,15 +1,17 @@
 import React from 'react';
+import './filter.css'
 
-export default function Filter() {
+export default function Filter(props) {
   return (
-    <div className='input-group mb-3'>
-      <select className='custom-select' id='inputGroupSelect02'>
-        <option selected>Filter by...</option>
-        <option value='1'>Role</option>
-        <option value='2'>First</option>
-        <option value='3'>Last</option>
-        <option value='4'>Handle</option>
-      </select>
-    </div>
+    <form className='form'>
+      <input
+        name='searchBy'
+        value={props.searchBy}
+        onChange={props.handleInputChange}
+        placeholder='Enter Role Name'
+        className='filter-input'
+      />
+      <button onClick={props.filterByRole}>Search By Role</button>
+    </form>
   );
 }

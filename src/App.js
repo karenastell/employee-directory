@@ -6,18 +6,55 @@ import Filter from './components/Filter';
 import Container from './components/Container';
 import Users from './components/Users.json';
 import Footer from './components/Footer';
+import Reset from './components/Reset';
 
 export default class App extends Component {
   state = {
     users: Users,
+    searchBy: '',
     sortBy: '',
+  };
+
+  handleInputChange = (event) => {
+    // some more info go here: https://reactjs.org/docs/forms.html#controlled-components
+    console.log(event.target);
+    //   const value = event.target.value;
+    //   const name = event.target.name;
+
+    const { name, value } = event.target;
+
+    console.log(value, name);
+    // use brackets to signify the name in the state
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleSortText = (event) => {
+    event.preventDefault();
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+    // sort by name
+    Users.sort(function (a, b) {
+      let nameA = a.firstName.toUpperCase(); // ignore upper and lowercase
+      let nameB = b.firstName.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      // names must be equal
+      return 0;
+    });
+    // set the state users to the new array to update the table
+    this.setState({
+      users: this.state.users,
+    });
   };
 
   handleSortLastName = (event) => {
     event.preventDefault();
-
-    console.log(this.state.users);
-
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
     // sort by name
     Users.sort(function (a, b) {
@@ -33,6 +70,7 @@ export default class App extends Component {
       // names must be equal
       return 0;
     });
+    // set the state users to the new array to update the table
     this.setState({
       users: this.state.users,
     });
@@ -45,8 +83,39 @@ export default class App extends Component {
     Users.sort(function (a, b) {
       return a.id - b.id;
     });
+    // set the state users to the new array to update the table
     this.setState({
       users: this.state.users,
+    });
+  };
+
+  filterByRole = (event) => {
+    event.preventDefault();
+    let search = this.state.searchBy;
+    search.toUpperCase();
+    console.log(search);
+    // find all the users that have the role of the value of the input
+    // the input value updates the state: searchBy
+    let filteredArray = Users.filter((user) => {
+      return user.role === search;
+    });
+
+    console.log(filteredArray);
+    if(filteredArray.length === 0){
+      return <p>There are no results for your search, please try again.</p>
+    }
+
+    // set the state users to the new array to update the table
+    this.setState({
+      users: filteredArray,
+    });
+  };
+
+  resetTable = (event) => {
+    event.preventDefault();
+    // set the state user back to the original json data
+    this.setState({
+      users: Users,
     });
   };
 
@@ -55,11 +124,16 @@ export default class App extends Component {
       <div className='App'>
         <Header />
         <Container>
-          <Filter />
+          <Reset resetTable={this.resetTable} />
+          <Filter
+            handleInputChange={this.handleInputChange}
+            filterByRole={this.filterByRole}
+          />
           <Table
             users={this.state.users}
             handleSortID={this.handleSortID}
             handleSortLastName={this.handleSortLastName}
+            handleSortText={this.handleSortText}
           />
         </Container>
         <Footer />
@@ -67,27 +141,3 @@ export default class App extends Component {
     );
   }
 }
-
-// function App() {
-
-//   const handleSort = (event) => {
-//     event.preventDefault();
-//     alert('handlesort');
-//   };
-
-//   return (
-//     <div className='App'>
-//       <Header />
-//       <Container>
-//         <Filter />
-//         <Table
-//           users={Users}
-//           handleSort={handleSort}
-//         />
-//       </Container>
-//       <Footer/>
-//     </div>
-//   );
-// }
-
-// export default App;

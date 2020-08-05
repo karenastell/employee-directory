@@ -7,7 +7,9 @@ export default function TableHeaders(props) {
         <button onClick={props.handleSortID}>ID</button>
       </th>
       <th scope='col'>
-        <button>First Name</button>
+        <button value='firstName' onClick={props.handleSortText}>
+          First Name
+        </button>
       </th>
       <th scope='col'>
         <button onClick={props.handleSortLastName}>Last Name</button>
