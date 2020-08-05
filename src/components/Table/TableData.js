@@ -1,28 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class TableData extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <tr>
-          <th scope='row'>1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+export default function TableData(props) {
+  return (
+    <React.Fragment>
+      {props.users.map((user) => (
+        <tr key={user.id}>
+          <td>{user.id}</td>
+          <td>{user.firstName}</td>
+          <td>{user.lastName}</td>
+          <td>{user.role}</td>
+          <td>{user.email}</td>
         </tr>
-        <tr>
-          <th scope='row'>2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope='row'>3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </React.Fragment>
-    );
-  }
+      ))}
+    </React.Fragment>
+  );
 }
