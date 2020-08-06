@@ -7,11 +7,13 @@ import Container from './components/Container';
 import Users from './components/Users.json';
 import Footer from './components/Footer';
 import Reset from './components/Reset';
+import NoResultMessage from './components/NoResultMessage';
 
 export default class App extends Component {
   state = {
     users: Users,
     searchBy: '',
+    noResults: false,
     sortBy: '',
   };
 
@@ -101,8 +103,11 @@ export default class App extends Component {
     });
 
     console.log(filteredArray);
-    if(filteredArray.length === 0){
-      return <p>There are no results for your search, please try again.</p>
+    if (filteredArray.length === 0) {
+      this.setState({
+        noResults: true,
+      });
+      return alert('There are no users that match that search.');
     }
 
     // set the state users to the new array to update the table
@@ -119,6 +124,14 @@ export default class App extends Component {
     });
   };
 
+  noResultMessage = () => {
+    if (this.state.noResults === true) {
+      alert('true')
+      return <NoResultMessage />;
+    }
+  };
+
+
   render() {
     return (
       <div className='App'>
@@ -129,6 +142,7 @@ export default class App extends Component {
             handleInputChange={this.handleInputChange}
             filterByRole={this.filterByRole}
           />
+          {this.noResultMessage()}
           <Table
             users={this.state.users}
             handleSortID={this.handleSortID}
