@@ -107,7 +107,6 @@ export default class App extends Component {
       this.setState({
         noResults: true,
       });
-      return alert('There are no users that match that search.');
     }
 
     // set the state users to the new array to update the table
@@ -126,7 +125,6 @@ export default class App extends Component {
 
   noResultMessage = () => {
     if (this.state.noResults === true) {
-      alert('true')
       return <NoResultMessage />;
     }
   };
@@ -141,6 +139,7 @@ export default class App extends Component {
           <Filter
             handleInputChange={this.handleInputChange}
             filterByRole={this.filterByRole}
+            users={this.state.users}
           />
           {this.noResultMessage()}
           <Table
