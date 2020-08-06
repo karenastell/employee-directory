@@ -15,6 +15,7 @@ export default class App extends Component {
     searchBy: '',
     noResults: false,
     sortBy: '',
+    rolesArray: [],
   };
 
   handleInputChange = (event) => {
@@ -93,6 +94,10 @@ export default class App extends Component {
 
   filterByRole = (event) => {
     event.preventDefault();
+    this.setState({
+      noResults: false,
+      users: Users,
+    });
     let search = this.state.searchBy;
     search.toUpperCase();
     console.log(search);
@@ -129,20 +134,31 @@ export default class App extends Component {
     }
   };
 
+  // removeDuplicates = () => {
+  //   let newArray = [];
+  //   Users.map((user) => newArray.push(user.role));
+  //   let rolesArray = Array.from(new Set(newArray));
+  //   this.setState({
+  //     rolesArray: rolesArray,
+  //   });
+  // };
 
   render() {
     return (
       <div className='App'>
+        {/* {this.removeDuplicates()} */}
         <Header />
         <Container>
           <Reset resetTable={this.resetTable} />
           <Filter
+            removeDuplicates={this.removeDuplicates}
             handleInputChange={this.handleInputChange}
             filterByRole={this.filterByRole}
             users={this.state.users}
           />
           {this.noResultMessage()}
           <Table
+            rolesArray={this.state.rolesArray}
             users={this.state.users}
             handleSortID={this.handleSortID}
             handleSortLastName={this.handleSortLastName}

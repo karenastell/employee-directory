@@ -14,9 +14,11 @@ export default function Filter(props) {
       />
       <button onClick={props.filterByRole}>Search By Role</button>
       <datalist id='datalistOptions'>
-        {props.users.map((user)=>(
-           <option value={user.role} />
-        ))}
+        {/* {props.rolesArray.map((role)=>(
+          // let roleArray = roleArray.push(user.role)
+          // console.log('filter test', user)
+          //  <option value={role}/>
+        ))} */}
        
     
       </datalist>
