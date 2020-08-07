@@ -12,39 +12,15 @@ export default function Filter(props) {
         className='filter-input'
         list='datalistOptions'
       />
-      <button onClick={props.filterByRole}>Search By Role</button>
+      <button className='btn btn-secondary' onClick={props.filterByRole}>Search By Role</button>
       <datalist id='datalistOptions'>
+        {props.removeDuplicates()}
         {/* {props.rolesArray.map((role)=>(
-          // let roleArray = roleArray.push(user.role)
-          // console.log('filter test', user)
-          //  <option value={role}/>
+           <option value={role}/>
         ))} */}
-       
-    
       </datalist>
+      <button className='ml-1 btn btn-secondary' onClick={props.resetTable}>Reset Table</button>
     </form>
 
-    // <div className='mb-3 mt-3 form'>
-    //   <label for='exampleDataList' className='form-label'>
-    //     Search by Role:
-    //   </label>
-    //   <input
-    //     name='searchBy'
-    //     value={props.searchBy}
-    //     onChange={props.searchBy}
-    //     className='form-control'
-    //     list='datalistOptions'
-    //     id='exampleDataList'
-    //     placeholder='Enter Role Name'
-    //   />
-    //   <datalist id='datalistOptions'>
-    //     {/* <option value='apple' />
-    //     <option value='orange' />
-    //     <option value='lemon' />
-    //     <option value='pear' />
-    //     <option value='grape' /> */}
-    //   </datalist>
-    //   <button onClick={props.filterByRole}>Search By Role</button>
-    // </div>
   );
 }

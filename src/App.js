@@ -6,7 +6,6 @@ import Filter from './components/Filter';
 import Container from './components/Container';
 import Users from './components/Users.json';
 import Footer from './components/Footer';
-import Reset from './components/Reset';
 import NoResultMessage from './components/NoResultMessage';
 
 export default class App extends Component {
@@ -108,6 +107,7 @@ export default class App extends Component {
     });
 
     console.log(filteredArray);
+    // determine if there are results or not to change the state if needed
     if (filteredArray.length === 0) {
       this.setState({
         noResults: true,
@@ -129,28 +129,29 @@ export default class App extends Component {
   };
 
   noResultMessage = () => {
+    // display a message to the user if there are no search results found
     if (this.state.noResults === true) {
       return <NoResultMessage />;
     }
   };
 
-  // removeDuplicates = () => {
-  //   let newArray = [];
-  //   Users.map((user) => newArray.push(user.role));
-  //   let rolesArray = Array.from(new Set(newArray));
-  //   this.setState({
-  //     rolesArray: rolesArray,
-  //   });
-  // };
+  removeDuplicates = () => {
+    let newArray = [];
+    Users.map((user) => newArray.push(user.role));
+    let rolesArray = Array.from(new Set(newArray));
+    console.log(rolesArray);
+
+    return rolesArray.map((role) => <option value={role} />);
+  };
 
   render() {
     return (
       <div className='App'>
-        {/* {this.removeDuplicates()} */}
         <Header />
         <Container>
-          <Reset resetTable={this.resetTable} />
           <Filter
+            rolesArray={this.state.rolesArray}
+            resetTable={this.resetTable}
             removeDuplicates={this.removeDuplicates}
             handleInputChange={this.handleInputChange}
             filterByRole={this.filterByRole}
@@ -158,7 +159,6 @@ export default class App extends Component {
           />
           {this.noResultMessage()}
           <Table
-            rolesArray={this.state.rolesArray}
             users={this.state.users}
             handleSortID={this.handleSortID}
             handleSortLastName={this.handleSortLastName}

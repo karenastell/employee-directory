@@ -4,19 +4,28 @@ export default function TableHeaders(props) {
   return (
     <tr>
       <th scope='col'>
-        <button onClick={props.handleSortID}>ID</button>
+        <button className='btn btn-secondary' onClick={props.handleSortID}>
+          ID
+        </button>
       </th>
       <th scope='col'>
-        <button value='firstName' onClick={props.handleSortText}>
+        <button
+          className='btn btn-secondary'
+          value='firstName'
+          onClick={props.handleSortText}
+        >
           First Name
         </button>
       </th>
       <th scope='col'>
-        <button onClick={props.handleSortLastName}>Last Name</button>
+        <button
+          className='btn btn-secondary'
+          onClick={props.handleSortLastName}
+        >
+          Last Name
+        </button>
       </th>
-      <th scope='col'>
-        <button>Role</button>
-      </th>
+      <th scope='col'>Role</th>
       <th scope='col'>Email</th>
     </tr>
   );
