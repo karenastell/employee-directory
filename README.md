@@ -19,7 +19,8 @@ If using the app locally - be sure to run `npm install` in the console to instal
 ## Where to find this App
 * [GitHub](https://github.com/karenastell/employee-directory)
 
-* [GitHub Pages](https://karenastell.github.io/employee-directory)
+* [GitHub Pages](https://karenastell.github.io/employee-directory/)
+
 
 
 
