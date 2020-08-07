@@ -98,8 +98,6 @@ export default class App extends Component {
       users: Users,
     });
     let search = this.state.searchBy;
-    search.toUpperCase();
-    console.log(search);
     // find all the users that have the role of the value of the input
     // the input value updates the state: searchBy
     let filteredArray = Users.filter((user) => {
@@ -137,11 +135,12 @@ export default class App extends Component {
 
   removeDuplicates = () => {
     let newArray = [];
+    // put all the roles into an array
     Users.map((user) => newArray.push(user.role));
+    // exclude duplicates into another array
     let rolesArray = Array.from(new Set(newArray));
-    console.log(rolesArray);
-
-    return rolesArray.map((role) => <option value={role} />);
+    // return the options for the datalist
+    return rolesArray.map((role) => <option key={role} value={role} />);
   };
 
   render() {

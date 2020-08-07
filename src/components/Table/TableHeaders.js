@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 export default function TableHeaders(props) {
   return (
     <tr>
@@ -19,6 +20,7 @@ export default function TableHeaders(props) {
       </th>
       <th scope='col'>
         <button
+          value={props.sortBy}
           className='btn btn-secondary'
           onClick={props.handleSortLastName}
         >
